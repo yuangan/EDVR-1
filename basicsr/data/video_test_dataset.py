@@ -209,6 +209,7 @@ class VideoTestVimeo90KDataset(data.Dataset):
             self.data_info['border'].append(0)
 
     def __getitem__(self, index):
+        print(lq_path)
         lq_path = self.data_info['lq_path'][index]
         gt_path = self.data_info['gt_path'][index]
         imgs_lq = read_img_seq(lq_path)
