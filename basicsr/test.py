@@ -21,13 +21,12 @@ def main():
     make_exp_dirs(opt)
     log_file = osp.join(opt['path']['log'],
                         f"test_{opt['name']}_{get_time_str()}.log")
-    print(log_file)
-    assert(0)
+    print('log_file', log_file)
     logger = get_root_logger(
         logger_name='basicsr', log_level=logging.INFO, log_file=log_file)
     logger.info(get_env_info())
     logger.info(dict2str(opt))
-
+    assert(0)
     # create test dataset and dataloader
     test_loaders = []
     for phase, dataset_opt in sorted(opt['datasets'].items()):
