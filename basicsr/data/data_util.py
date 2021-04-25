@@ -24,6 +24,7 @@ def read_img_seq(path, require_mod_crop=False, scale=1):
         img_paths = path
     else:
         img_paths = sorted(list(scandir(path, full_path=True)))
+    print(img_paths)
     imgs = [cv2.imread(v).astype(np.float32) / 255. for v in img_paths]
     if require_mod_crop:
         imgs = [mod_crop(img, scale) for img in imgs]
