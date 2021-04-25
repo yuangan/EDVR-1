@@ -210,7 +210,6 @@ class VideoTestVimeo90KDataset(data.Dataset):
 
     def __getitem__(self, index):
         lq_path = self.data_info['lq_path'][index]
-        print(lq_path)
         gt_path = self.data_info['gt_path'][index]
         imgs_lq = read_img_seq(lq_path)
         img_gt = read_img_seq([gt_path])
