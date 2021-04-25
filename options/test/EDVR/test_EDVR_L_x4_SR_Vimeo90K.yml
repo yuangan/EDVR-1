@@ -8,8 +8,8 @@ datasets:
   test:
     name: Vimeo90K-Test
     type: VideoTestVimeo90KDataset
-    dataroot_gt: datasets/vimeo90k/vimeo_septuplet/sequences
-    dataroot_lq: datasets/vimeo90k/vimeo_septuplet_matlabLRx4/sequences
+    dataroot_gt: /kaggle/input/vimeo_septuplet/GT
+    dataroot_lq: /kaggle/input/vimeo_septuplet/LR
     meta_info_file: basicsr/data/meta_info/meta_info_Vimeo90K_test_GT.txt
     io_backend:
       type: disk
@@ -35,7 +35,7 @@ network_g:
 
 # path
 path:
-  pretrain_network_g: experiments/pretrained_models/EDVR/EDVR_L_x4_SR_Vimeo90K_official-162b54e4.pth
+  pretrain_network_g: ./EDVR/EDVR_L_x4_SR_Vimeo90K_official-162b54e4.pth
   strict_load_g: true
 
 # validation settings
