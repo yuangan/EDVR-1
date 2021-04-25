@@ -190,6 +190,7 @@ class SRModel(BaseModel):
             log_str += f'\t # {metric}: {value:.4f}\n'
         logger = get_root_logger()
         logger.info(log_str)
+        print(log_str)
         if tb_logger:
             for metric, value in self.metric_results.items():
                 tb_logger.add_scalar(f'metrics/{metric}', value, current_iter)
