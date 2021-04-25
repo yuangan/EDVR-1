@@ -9,7 +9,7 @@ datasets:
     name: Vimeo90K-Test
     type: VideoTestVimeo90KDataset
     dataroot_gt: /kaggle/input/musuperv/vimeo_septuplet/GT
-    dataroot_lq: /kaggle/input/mysuperv/vimeo_septuplet/LR
+    dataroot_lq: /kaggle/input/mysuperv/vimeo_septuplet/LQ
     meta_info_file: basicsr/data/meta_info/meta_info_Vimeo90K_test_GT.txt
     io_backend:
       type: disk
