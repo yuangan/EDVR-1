@@ -164,7 +164,6 @@ class SRModel(BaseModel):
                             self.opt['path']['visualization'], dataset_name,
                             f'{img_name}_{self.opt["name"]}.png')
                 imwrite(sr_img, save_img_path)
-            print('with_metrics ', with_metrics)
 
             if with_metrics:
                 # calculate metrics

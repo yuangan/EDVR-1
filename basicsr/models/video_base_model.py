@@ -94,6 +94,7 @@ class VideoBaseModel(SRModel):
                                      metric_type)(result_img, gt_img, **opt_)
                     self.metric_results[folder][int(frame_idx),
                                                 metric_idx] += result
+            print('with_metrics ', with_metrics)
 
             # progress bar
             if rank == 0:
