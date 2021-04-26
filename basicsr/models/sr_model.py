@@ -174,7 +174,7 @@ class SRModel(BaseModel):
                     self.metric_results[name] += getattr(
                         metric_module, metric_type)(sr_img, gt_img, **opt_)
             pbar.update(1)
-            pbar.set_description(f'Test {img_name}')
+            pbar.set_description(f'Test {img_name} {with_metrics}')
         pbar.close()
         
         print('with_metrics ', with_metrics)
