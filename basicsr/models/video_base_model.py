@@ -94,7 +94,6 @@ class VideoBaseModel(SRModel):
                                      metric_type)(result_img, gt_img, **opt_)
                     self.metric_results[folder][int(frame_idx),
                                                 metric_idx] += result
-            print('with_metrics ', with_metrics)
 
             # progress bar
             if rank == 0:
@@ -160,7 +159,8 @@ class VideoBaseModel(SRModel):
             for folder, tensor in metric_results_avg.items():
                 log_str += f'\t # {folder}: {tensor[metric_idx].item():.4f}'
             log_str += '\n'
-
+        print(log_str)
+        
         logger = get_root_logger()
         logger.info(log_str)
         if tb_logger:

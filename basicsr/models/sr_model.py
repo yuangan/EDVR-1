@@ -176,15 +176,11 @@ class SRModel(BaseModel):
             pbar.set_description(f'Test {img_name} {with_metrics}')
         pbar.close()
         
-        print('with_metrics ', with_metrics)
-        print('with_metrics ', with_metrics)
-        print('with_metrics ', with_metrics)
 
         if with_metrics:
             for metric in self.metric_results.keys():
                 self.metric_results[metric] /= (idx + 1)
 
-            print('start')
             self._log_validation_metric_values(current_iter, dataset_name,
                                                tb_logger)
 
@@ -195,8 +191,6 @@ class SRModel(BaseModel):
             log_str += f'\t # {metric}: {value:.4f}\n'
         logger = get_root_logger()
         logger.info(log_str)
-        print(log_str)
-        print('_______________________________')
         if tb_logger:
             for metric, value in self.metric_results.items():
                 tb_logger.add_scalar(f'metrics/{metric}', value, current_iter)
