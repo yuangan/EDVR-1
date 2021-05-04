@@ -31,8 +31,8 @@ class VideoBaseModel(SRModel):
             for folder, num_frame in num_frame_each_folder.items():
                 self.metric_results[folder] = torch.zeros(
                     num_frame,
-                    len(self.opt['val']['metrics']),
-                    dtype=torch.float32).to(xm.xla_device())
+                    len(self.opt['val']['metrics'])).to(xm.xla_device())
+                print(self.metric_results[folder])
         rank, world_size = get_dist_info()
         if with_metrics:
             for _, tensor in self.metric_results.items():
