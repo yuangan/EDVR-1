@@ -11,7 +11,7 @@ from basicsr.utils import get_root_logger, imwrite, tensor2img
 from basicsr.utils.dist_util import get_dist_info
 
 metric_module = importlib.import_module('basicsr.metrics')
-
+import torch_xla.core.xla_model as xm 
 
 class VideoBaseModel(SRModel):
     """Base video SR model."""
@@ -33,7 +33,7 @@ class VideoBaseModel(SRModel):
                     num_frame,
                     len(self.opt['val']['metrics']),
                     dtype=torch.float32,
-                    device='cuda')
+                    device=xm.xla_device())
         rank, world_size = get_dist_info()
         if with_metrics:
             for _, tensor in self.metric_results.items():
