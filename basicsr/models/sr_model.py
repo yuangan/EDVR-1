@@ -12,6 +12,7 @@ from basicsr.utils import get_root_logger, imwrite, tensor2img
 loss_module = importlib.import_module('basicsr.models.losses')
 metric_module = importlib.import_module('basicsr.metrics')
 
+import troch_xla.core.xla_model as xm
 
 class SRModel(BaseModel):
     """Base SR model for single image super-resolution."""
@@ -21,7 +22,9 @@ class SRModel(BaseModel):
 
         # define network
         self.net_g = define_network(deepcopy(opt['network_g']))
-        self.net_g = self.model_to_device(self.net_g)
+        # self.net_g = self.model_to_device(self.net_g)
+        device = xm.xla_device()
+        self.net_g = self.net_g.to(device)
         self.print_network(self.net_g)
 
         # load pretrained models
