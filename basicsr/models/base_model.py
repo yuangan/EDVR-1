@@ -8,7 +8,7 @@ from torch.nn.parallel import DataParallel, DistributedDataParallel
 from basicsr.models import lr_scheduler as lr_scheduler
 from basicsr.utils.dist_util import master_only
 
-import torch_xla.core.xlad_model as xm
+import torch_xla.core.xla_model as xm
 
 logger = logging.getLogger('basicsr')
 
