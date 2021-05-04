@@ -58,7 +58,6 @@ class BaseModel():
     def model_to_device(self, net):
         """Model to device. It also warps models with DistributedDataParallel
         or DataParallel.
-
         Args:
             net (nn.Module)
         """
