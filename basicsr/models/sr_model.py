@@ -12,7 +12,7 @@ from basicsr.utils import get_root_logger, imwrite, tensor2img
 loss_module = importlib.import_module('basicsr.models.losses')
 metric_module = importlib.import_module('basicsr.metrics')
 
-import troch_xla.core.xla_model as xm
+import torch_xla.core.xla_model as xm
 
 class SRModel(BaseModel):
     """Base SR model for single image super-resolution."""
