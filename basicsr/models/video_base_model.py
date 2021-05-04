@@ -33,6 +33,7 @@ class VideoBaseModel(SRModel):
                     num_frame,
                     len(self.opt['val']['metrics'])).to(xm.xla_device())
                 print(self.metric_results[folder])
+        print('gg')
         rank, world_size = get_dist_info()
         if with_metrics:
             for _, tensor in self.metric_results.items():
